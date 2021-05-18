@@ -22,28 +22,42 @@ namespace ZipCreate
 
         static void CompressFiles(string path,ZipOutputStream inputStream)
         {
-            //Get all file paths below this directories.
-            var files = Directory.GetFiles(path);
-
-            foreach(var singleFile in files)
+            var attr = File.GetAttributes(path);
+            if (!attr.HasFlag(FileAttributes.Directory))
             {
-                //Set Entry information
-                var EntryName = ZipEntry.CleanName(singleFile);
+                var EntryName = ZipEntry.CleanName(path);
                 var newEntry = new ZipEntry(EntryName);
                 inputStream.PutNextEntry(newEntry);
 
-                //stream input
-                var buffer = new byte[8192];
-                using FileStream fileStream = File.OpenRead(singleFile);
-                StreamUtils.Copy(fileStream, inputStream,buffer);
-
+                var buffer = new byte[4096];
+                using FileStream fileStream = File.OpenRead(path);
+                StreamUtils.Copy(fileStream, inputStream, buffer);
             }
-
-            //Recursively
-            var subFolders = Directory.GetDirectories(path);
-            foreach(var dire in subFolders)
+            else
             {
-                CompressFiles(dire, inputStream);
+                //Get all file paths below this directories.
+                var files = Directory.GetFiles(path);
+
+                foreach (var singleFile in files)
+                {
+                    //Set Entry information
+                    var EntryName = ZipEntry.CleanName(singleFile);
+                    var newEntry = new ZipEntry(EntryName);
+                    inputStream.PutNextEntry(newEntry);
+
+                    //stream input
+                    var buffer = new byte[4096];
+                    using FileStream fileStream = File.OpenRead(singleFile);
+                    StreamUtils.Copy(fileStream, inputStream, buffer);
+
+                }
+
+                //Recursively
+                var subFolders = Directory.GetDirectories(path);
+                foreach (var dire in subFolders)
+                {
+                    CompressFiles(dire, inputStream);
+                }
             }
         }
     }
