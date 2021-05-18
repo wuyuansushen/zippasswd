@@ -15,23 +15,17 @@ namespace ZipCreate
             outStream.Password = (args[args.Length-1]);
             for(int i=1;i<args.Length-1;i++)
             {
-                CompressFiles(args[i], outStream);
+                Compress(args[i], outStream);
             }
             outStream.Close();
         }
 
-        static void CompressFiles(string path,ZipOutputStream inputStream)
+        static void Compress(string path,ZipOutputStream inputStream)
         {
             var attr = File.GetAttributes(path);
             if (!attr.HasFlag(FileAttributes.Directory))
             {
-                var EntryName = ZipEntry.CleanName(path);
-                var newEntry = new ZipEntry(EntryName);
-                inputStream.PutNextEntry(newEntry);
-
-                var buffer = new byte[4096];
-                using FileStream fileStream = File.OpenRead(path);
-                StreamUtils.Copy(fileStream, inputStream, buffer);
+                CompressFiles(path, inputStream);
             }
             else
             {
@@ -40,16 +34,7 @@ namespace ZipCreate
 
                 foreach (var singleFile in files)
                 {
-                    //Set Entry information
-                    var EntryName = ZipEntry.CleanName(singleFile);
-                    var newEntry = new ZipEntry(EntryName);
-                    inputStream.PutNextEntry(newEntry);
-
-                    //stream input
-                    var buffer = new byte[4096];
-                    using FileStream fileStream = File.OpenRead(singleFile);
-                    StreamUtils.Copy(fileStream, inputStream, buffer);
-
+                    CompressFiles(singleFile, inputStream);
                 }
 
                 //Recursively
@@ -59,6 +44,16 @@ namespace ZipCreate
                     CompressFiles(dire, inputStream);
                 }
             }
+        }
+        static void CompressFiles(string path, ZipOutputStream inputStream)
+        {
+            var EntryName = ZipEntry.CleanName(path);
+            var newEntry = new ZipEntry(EntryName);
+            inputStream.PutNextEntry(newEntry);
+
+            var buffer = new byte[4096];
+            using FileStream fileStream = File.OpenRead(path);
+            StreamUtils.Copy(fileStream, inputStream, buffer);
         }
     }
 }
