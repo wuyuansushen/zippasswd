@@ -5,3 +5,5 @@ Zip tool without encrption prompt.
 ```
 zippasswd [OutputZipFile] [Entry] [Entry] [Entry] [...] [Password]
 ```
+
+Tip: `[Entry]` can be files or directories.
