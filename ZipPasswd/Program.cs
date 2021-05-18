@@ -9,15 +9,19 @@ namespace ZipCreate
     {
         static void Main(string[] args)
         {
-            using var fs = File.Create(args[0]);
-            using var outStream = new ZipOutputStream(fs);
-            outStream.SetLevel(5);
-            outStream.Password = (args[args.Length-1]);
-            for(int i=1;i<args.Length-1;i++)
+            using (var fs = File.Create(args[0]))
             {
-                Compress(args[i], outStream);
+                using (var outStream = new ZipOutputStream(fs))
+                {
+                    outStream.SetLevel(5);
+                    outStream.Password = (args[args.Length - 1]);
+                    for (int i = 1; i < args.Length - 1; i++)
+                    {
+                        Compress(args[i], outStream);
+                    }
+                    outStream.Close();
+                }
             }
-            outStream.Close();
         }
 
         static void Compress(string path,ZipOutputStream inputStream)
@@ -41,7 +45,7 @@ namespace ZipCreate
                 var subFolders = Directory.GetDirectories(path);
                 foreach (var dire in subFolders)
                 {
-                    CompressFiles(dire, inputStream);
+                    Compress(dire, inputStream);
                 }
             }
         }
