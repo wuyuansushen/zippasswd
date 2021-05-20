@@ -53,6 +53,7 @@ namespace ZipCreate
         {
             var EntryName = ZipEntry.CleanName(path);
             var newEntry = new ZipEntry(EntryName);
+            newEntry.IsUnicodeText = true;
             inputStream.PutNextEntry(newEntry);
 
             var buffer = new byte[4096];
