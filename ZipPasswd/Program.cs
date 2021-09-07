@@ -11,6 +11,7 @@ namespace ZipCreate
         {
             using (var fs = File.Create(args[0]))
             {
+                string suffix = ".aria2";
                 using (var outStream = new ZipOutputStream(fs))
                 {
                     outStream.SetLevel(5);
@@ -18,6 +19,13 @@ namespace ZipCreate
                     for (int i = 1; i < args.Length - 1; i++)
                     {
                         Compress(args[i], outStream);
+                        File.Delete(args[i]);
+                        string aria2File = args[i] + suffix;
+                        if(File.Exists(aria2File))
+                        {
+                            File.Delete(aria2File);
+                        }
+                        else { }
                     }
                     outStream.Close();
                 }
