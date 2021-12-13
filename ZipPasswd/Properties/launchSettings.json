@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ZipPasswd": {
+      "commandName": "Project",
+      "commandLineArgs": "out.zip var 1234567890"
+    }
+  }
+}
