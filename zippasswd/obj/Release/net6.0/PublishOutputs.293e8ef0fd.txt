@@ -1,0 +1,6 @@
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\publish\zippasswd.exe
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\publish\zippasswd.dll
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\publish\zippasswd.deps.json
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\publish\zippasswd.runtimeconfig.json
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\publish\zippasswd.pdb
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\publish\ICSharpCode.SharpZipLib.dll

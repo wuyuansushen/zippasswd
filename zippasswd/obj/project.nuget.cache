@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WEnpZI4Gr0D7n5D5ynMCgnfMTNUif0v3hrPejrdkOweo/Lp1bdRxas9jnklfvQkjfEE7KnlRbsST3eGDC4ocIQ==",
+  "dgSpecHash": "KKFeAhzuJDOVDVFOlaZt6PX8DnsIlb0/esk+gvTK1/301IvXysa3KDuHC1oFc9o2+YjEvS9yQOStxCIaK3WA/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\81907\\source\\repos\\zippasswd\\zippasswd\\zippasswd.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\81907\\.nuget\\packages\\sharpziplib\\1.3.3\\sharpziplib.1.3.3.nupkg.sha512"
+  ],
   "logs": []
 }

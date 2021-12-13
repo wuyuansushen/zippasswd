@@ -13,3 +13,5 @@ C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.dll
 C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\ref\zippasswd.dll
 C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.pdb
 C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.genruntimeconfig.cache
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Debug\net6.0\ICSharpCode.SharpZipLib.dll
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.csproj.CopyComplete

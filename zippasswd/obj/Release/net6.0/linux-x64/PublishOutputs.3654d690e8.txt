@@ -1,0 +1,2 @@
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\publish\linux-x64\zippasswd.pdb
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\publish\linux-x64\zippasswd
