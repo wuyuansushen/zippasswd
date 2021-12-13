@@ -18,12 +18,22 @@ namespace zippasswd
                     outStream.Password = (args[args.Length - 1]);
                     for (int i = 1; i < args.Length - 1; i++)
                     {
-                        Compress(args[i], outStream);
-                        File.Delete(args[i]);
-                        string aria2File = args[i] + suffix;
+                        var cleanName = args[i].Trim();
+                        var pureName = "";
+                        if(cleanName.Last()=='/')
+                        { pureName = cleanName.Substring(0, cleanName.Length - 1); }
+                        else { pureName = cleanName; }
+                        Compress(pureName, outStream);
+                        File.Delete(pureName);
+                        string aria2File = pureName + suffix;
                         if(File.Exists(aria2File))
                         {
                             File.Delete(aria2File);
+                        }
+                        else { }
+                        if(File.Exists(pureName))
+                        {
+                            File.Delete(pureName);
                         }
                         else { }
                     }
