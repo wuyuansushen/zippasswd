@@ -7,6 +7,7 @@ namespace zippasswd
 {
     public class Program
     {
+        public static ZipEntryFactory zipEntryFactory=new ZipEntryFactory();
         static void Main(string[] args)
         {
             using (var fs = File.Create(args[0]))
@@ -19,11 +20,30 @@ namespace zippasswd
                     for (int i = 1; i < args.Length - 1; i++)
                     {
                         var cleanName = args[i].Trim();
-                        var pureName = "";
+                        string pureName = "",prefixOfPath="";
                         if(cleanName.Last()=='/')
-                        { pureName = cleanName.Substring(0, cleanName.Length - 1); }
-                        else { pureName = cleanName; }
-                        Compress(pureName, outStream);
+                        {
+                            //Clean the last slash(/)
+                            pureName = cleanName.Substring(0, cleanName.Length - 1);
+                        }
+                        else
+                        {
+                            //Don't need to clean
+                            pureName = cleanName;
+                        }
+
+                        prefixOfPath = pureName.Substring(0, pureName.Length-
+                            (pureName.Split('/').Last()).Length);
+
+                        if (prefixOfPath.Length > 0)
+                        {
+                            Compress(pureName, outStream, prefixOfPath);
+                        }
+                        else
+                        {
+                            //No prefix
+                            Compress(pureName, outStream);
+                        }
                         string aria2File = pureName + suffix;
                         if(File.Exists(aria2File))
                         {
@@ -45,12 +65,12 @@ namespace zippasswd
             }
         }
 
-        static void Compress(string path,ZipOutputStream inputStream)
+        static void Compress(string path,ZipOutputStream inputStream,string prefixGet="")
         {
             var attr = File.GetAttributes(path);
             if (!attr.HasFlag(FileAttributes.Directory))
             {
-                CompressFiles(path, inputStream);
+                CompressFiles(path, inputStream,prefixGet);
             }
             else
             {
@@ -59,21 +79,30 @@ namespace zippasswd
 
                 foreach (var singleFile in files)
                 {
-                    CompressFiles(singleFile, inputStream);
+                    CompressFiles(singleFile, inputStream,prefixGet);
                 }
 
                 //Recursively
                 var subFolders = Directory.GetDirectories(path);
                 foreach (var dire in subFolders)
                 {
-                    Compress(dire, inputStream);
+                    Compress(dire, inputStream,prefixGet);
                 }
             }
         }
-        static void CompressFiles(string path, ZipOutputStream inputStream)
+        static void CompressFiles(string path, ZipOutputStream inputStream,string prefixAdjustment)
         {
             var EntryName = ZipEntry.CleanName(path);
-            var newEntry = new ZipEntry(EntryName);
+            //var newEntry = new ZipEntry(EntryName);
+            ZipEntry newEntry;
+            if (prefixAdjustment.Length > 0)
+            {
+                newEntry = zipEntryFactory.MakeFileEntry(EntryName, EntryName.Substring(prefixAdjustment.Length - 1), true);
+            }
+            else
+            {
+                newEntry = zipEntryFactory.MakeFileEntry(EntryName, true);
+            }
             newEntry.IsUnicodeText = true;
             inputStream.PutNextEntry(newEntry);
 
