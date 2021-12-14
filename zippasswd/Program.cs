@@ -24,18 +24,21 @@ namespace zippasswd
                         { pureName = cleanName.Substring(0, cleanName.Length - 1); }
                         else { pureName = cleanName; }
                         Compress(pureName, outStream);
-                        File.Delete(pureName);
                         string aria2File = pureName + suffix;
                         if(File.Exists(aria2File))
                         {
                             File.Delete(aria2File);
                         }
                         else { }
-                        if(File.Exists(pureName))
+                        var attr = File.GetAttributes(pureName);
+                        if (!attr.HasFlag(FileAttributes.Directory))
                         {
                             File.Delete(pureName);
                         }
-                        else { }
+                        else
+                        {
+                            Directory.Delete(pureName,true);
+                        }
                     }
                     outStream.Close();
                 }
