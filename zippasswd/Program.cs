@@ -94,7 +94,8 @@ namespace zippasswd
         {
             var EntryName = ZipEntry.CleanName(path);
             //var newEntry = new ZipEntry(EntryName);
-            ZipEntry newEntry;
+            ZipEntry newEntry=CreateEntryMore(EntryName,prefixAdjustment);
+            /*
             if (prefixAdjustment.Length > 0)
             {
                 newEntry = zipEntryFactory.MakeFileEntry(EntryName, EntryName.Substring(prefixAdjustment.Length - 1), true);
@@ -102,13 +103,27 @@ namespace zippasswd
             else
             {
                 newEntry = zipEntryFactory.MakeFileEntry(EntryName, true);
-            }
+            }*/
             newEntry.IsUnicodeText = true;
             inputStream.PutNextEntry(newEntry);
 
             var buffer = new byte[4096];
             using FileStream fileStream = File.OpenRead(path);
             StreamUtils.Copy(fileStream, inputStream, buffer);
+        }
+
+        public static ZipEntry CreateEntryMore(string entryNameString,string prefixName)
+        {
+            ZipEntry? newEntry = null;
+            if(prefixName.Length>0)
+            {
+                newEntry = zipEntryFactory.MakeFileEntry(entryNameString, entryNameString.Substring(prefixName.Length - 1), true);
+            }
+            else
+            {
+                newEntry=zipEntryFactory.MakeFileEntry(entryNameString, true);
+            }
+            return newEntry;
         }
     }
 }
