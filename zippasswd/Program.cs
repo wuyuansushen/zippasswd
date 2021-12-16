@@ -12,6 +12,8 @@ namespace zippasswd
         {
             const string suffix = ".aria2";
             string pureName = "",prefixOfPath="";
+            //Delete original destination file
+            DeleteFileAndDirectory(args[0]);
             using (var fs = File.Create(args[0]))
             {
                 using (var outStream = new ZipOutputStream(fs))
