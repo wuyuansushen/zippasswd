@@ -149,6 +149,7 @@ namespace zippasswd
                 //Get all file paths below this directories.
                 var files = Directory.GetFiles(path);
                 //Console.WriteLine("Folder");
+                CompressCurrentDirectory(path, inputStream, prefixGet);
                 //Console.WriteLine($"prefixGet is {prefixGet}");
 
                 foreach (var singleFile in files)
@@ -163,6 +164,23 @@ namespace zippasswd
                     Compress(dire, inputStream,prefixGet);
                 }
             }
+        }
+
+        public static void CompressCurrentDirectory(string path, ZipOutputStream inputStream,string prefixAdjustment)
+        {
+            var EntryName = ZipEntry.CleanName(path);
+            //ZipEntry newEntry=CreateEntryMore(EntryName,prefixAdjustment);
+            ZipEntry? newEntry = null;
+            if(prefixAdjustment.Length>0)
+            {
+                newEntry = zipEntryFactory.MakeDirectoryEntry(EntryName.Substring(prefixAdjustment.Length - 1), true);
+            }
+            else
+            {
+                newEntry=zipEntryFactory.MakeDirectoryEntry(EntryName,true);
+            }
+            newEntry.IsUnicodeText = true;
+            inputStream.PutNextEntry(newEntry);
         }
         public static void CompressFiles(string path, ZipOutputStream inputStream,string prefixAdjustment)
         {

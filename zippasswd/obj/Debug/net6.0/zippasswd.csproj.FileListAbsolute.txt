@@ -1,0 +1,17 @@
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Debug\net6.0\zippasswd.exe
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Debug\net6.0\zippasswd.deps.json
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Debug\net6.0\zippasswd.runtimeconfig.json
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Debug\net6.0\zippasswd.dll
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Debug\net6.0\ref\zippasswd.dll
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Debug\net6.0\zippasswd.pdb
+C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Debug\net6.0\ICSharpCode.SharpZipLib.dll
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.csproj.AssemblyReference.cache
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.AssemblyInfoInputs.cache
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.AssemblyInfo.cs
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.csproj.CoreCompileInputs.cache
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.csproj.CopyComplete
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.dll
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\ref\zippasswd.dll
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.pdb
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Debug\net6.0\zippasswd.genruntimeconfig.cache
