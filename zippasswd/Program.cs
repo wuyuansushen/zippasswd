@@ -92,7 +92,8 @@ namespace zippasswd
                 {
                     File.Delete(aria2File);
                 }
-                else { }*/
+                else {
+                }*/
                 DeleteFileAndDirectory(aria2File);
                 DeleteFileAndDirectory(pureName);
 
