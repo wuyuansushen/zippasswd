@@ -84,7 +84,8 @@ namespace zippasswd
                 {
                     //Don't need to clean
                     pureName = cleanName;
-                }*/
+                }
+                */
                 pureName=GetPureName(args[i]);
                 string aria2File = pureName + suffix;
                 /*
