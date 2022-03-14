@@ -1,5 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Runtime;
+using System.Collections;
+using System.Collections.Generic;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 
@@ -10,8 +13,8 @@ namespace zippasswd
         public static ZipEntryFactory zipEntryFactory=new ZipEntryFactory();
         static void Main(string[] args)
         {
-            const string suffix = ".aria2";
-            string pureName = "",prefixOfPath="";
+            const string suffix = @".aria2";
+            string pureName = @"",prefixOfPath=@"";
             //Delete original destination file
             DeleteFileAndDirectory(args[0]);
             using (var fs = File.Create(args[0]))
@@ -36,7 +39,7 @@ namespace zippasswd
                         pureName=GetPureName(args[i]);
 
                         prefixOfPath = pureName.Substring(0, pureName.Length -
-                            (pureName.Split('/').Last()).Length);
+                            (pureName.Split(Path.PathSeparator).Last()).Length);
 
                         //Console.WriteLine($"prefix of path: {prefixOfPath.Length}");
                         //Console.WriteLine($"pure name: {pureName}");
@@ -105,7 +108,7 @@ namespace zippasswd
         {
             var cleanName=inName.Trim();
             string? tmpName = null;
-                if (cleanName.Last() == '/')
+                if (cleanName.Last() == Path.PathSeparator)
                 {
                     //Clean the last slash(/)
                     tmpName = cleanName.Substring(0, cleanName.Length - 1);
@@ -138,7 +141,7 @@ namespace zippasswd
             {
             }
         }
-        static void Compress(string path,ZipOutputStream inputStream,string prefixGet="")
+        static void Compress(string path,ZipOutputStream inputStream,string prefixGet=@"")
         {
             var attr = File.GetAttributes(path);
             if (!attr.HasFlag(FileAttributes.Directory))

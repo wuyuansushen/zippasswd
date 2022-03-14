@@ -2,7 +2,6 @@ C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\linux-x64\zip
 C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\linux-x64\zippasswd.deps.json
 C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\linux-x64\zippasswd.runtimeconfig.json
 C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\linux-x64\zippasswd.dll
-C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\linux-x64\ref\zippasswd.dll
 C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\linux-x64\zippasswd.pdb
 C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\linux-x64\ICSharpCode.SharpZipLib.dll
 C:\Users\81907\source\repos\zippasswd\zippasswd\bin\Release\net6.0\linux-x64\Microsoft.CSharp.dll
@@ -194,3 +193,4 @@ C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Release\net6.0\linux-x64\zip
 C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Release\net6.0\linux-x64\ref\zippasswd.dll
 C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Release\net6.0\linux-x64\zippasswd.pdb
 C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Release\net6.0\linux-x64\zippasswd.genruntimeconfig.cache
+C:\Users\81907\source\repos\zippasswd\zippasswd\obj\Release\net6.0\linux-x64\refint\zippasswd.dll
