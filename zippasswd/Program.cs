@@ -39,7 +39,7 @@ namespace zippasswd
                         pureName=GetPureName(args[i]);
 
                         prefixOfPath = pureName.Substring(0, pureName.Length -
-                            (pureName.Split(Path.PathSeparator).Last()).Length);
+                            (pureName.Split(Path.DirectorySeparatorChar).Last()).Length);
 
                         //Console.WriteLine($"prefix of path: {prefixOfPath.Length}");
                         //Console.WriteLine($"pure name: {pureName}");
@@ -108,7 +108,7 @@ namespace zippasswd
         {
             var cleanName=inName.Trim();
             string? tmpName = null;
-                if (cleanName.Last() == Path.PathSeparator)
+                    if (cleanName.Last() == Path.DirectorySeparatorChar)
                 {
                     //Clean the last slash(/)
                     tmpName = cleanName.Substring(0, cleanName.Length - 1);

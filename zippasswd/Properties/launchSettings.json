@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "zippasswd": {
+      "commandName": "Project",
+      "commandLineArgs": "123 "
+    }
+  }
+}
