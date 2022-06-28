@@ -2,7 +2,7 @@
   "profiles": {
     "zippasswd": {
       "commandName": "Project",
-      "commandLineArgs": "123 "
+      "commandLineArgs": " debug.zip ..\\1\\  819070864"
     }
   }
 }

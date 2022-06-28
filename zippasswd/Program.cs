@@ -40,6 +40,7 @@ namespace zippasswd
 
                         prefixOfPath = pureName.Substring(0, pureName.Length -
                             (pureName.Split(Path.DirectorySeparatorChar).Last()).Length);
+                        var check = Path.DirectorySeparatorChar;
 
                         //Console.WriteLine($"prefix of path: {prefixOfPath.Length}");
                         //Console.WriteLine($"pure name: {pureName}");
