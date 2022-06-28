@@ -213,7 +213,7 @@ namespace zippasswd
             using FileStream fileStream = File.OpenRead(path);
             //StreamUtils.Copy(fileStream, inputStream, buffer);
 
-            fileStream.CopyTo(inputStream,4096);
+            fileStream.CopyTo(inputStream,1024);
         }
 
         public static ZipEntry CreateEntryMore(string entryNameString,string prefixName)
