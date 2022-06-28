@@ -74,7 +74,7 @@ namespace zippasswd
                             Directory.Delete(pureName,true);
                         }*/
                     }
-                    outStream.Close();
+                    //outStream.Close();
                 }
             }
 
