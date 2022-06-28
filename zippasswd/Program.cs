@@ -209,9 +209,11 @@ namespace zippasswd
             newEntry.IsUnicodeText = true;
             inputStream.PutNextEntry(newEntry);
 
-            var buffer = new byte[4096];
+            //var buffer = new byte[4096];
             using FileStream fileStream = File.OpenRead(path);
-            StreamUtils.Copy(fileStream, inputStream, buffer);
+            //StreamUtils.Copy(fileStream, inputStream, buffer);
+
+            fileStream.CopyTo(inputStream,4096);
         }
 
         public static ZipEntry CreateEntryMore(string entryNameString,string prefixName)
